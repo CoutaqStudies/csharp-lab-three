@@ -6,7 +6,7 @@ namespace LabThree
     {
         static void Main(string[] args)
         {
-            Task6.Do();
+            Task7.Do();
         }   
     }
 }
