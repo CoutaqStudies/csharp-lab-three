@@ -8,23 +8,27 @@ namespace LabThree
     {
         internal static void Do()
         {
-            int[] array = { 2, 4, 6 , -1 , 10, -100, 0};
-            Console.WriteLine(minInterative(array));
+            int[] array = {2, 4, 2, -10, -100, 50, -133};
+            Console.WriteLine(minRecurive(array, array.Length));
 
         }
-        internal static int sumInterative(int[] A)
+        internal static int sumInterative(int[] array)
         {
             int sum = 0;
-            for (int i = 0; i < A.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                sum+= A[i];
+                sum+= array[i];
             }
             return sum;
         }
-        private static int sumRecursive(int[] A)
+
+        static int sumRecursive(int[] array, int i = 0)
         {
-            int sum = A[0];
-            return sum+sumRecursive(A);
+            if (array[i] == array[array.Length - 1])
+            {
+                return array[array.Length - 1];
+            }                                                                              
+            return array[i] + sumRecursive(array, i + 1);
         }
         internal static int minInterative(int[] A)
         {
@@ -42,10 +46,18 @@ namespace LabThree
             }
             return sum;
         }
-        private static int minRecursive(int[] A)
+        static int minRecurive(int[] arr, int length)
         {
-            int sum = A[0];
-            return sum + sumRecursive(A);
+            if (arr.Length == 1){
+                return arr[0];
+            }
+            if (arr[length-1]> arr[length - 2]){
+                return minRecurive(arr, length - 1);
+            }
+            else
+            {
+                return arr[length - 1];
+            }
         }
     }
 }
