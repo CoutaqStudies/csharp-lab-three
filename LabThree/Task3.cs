@@ -32,6 +32,9 @@ namespace LabThree
                     Console.Write("Incorrect input, try again: ");
                 }
             }
+            if (k > arraySize){
+                k = k % arraySize;
+            }
             for (int i = 0; i <arraySize; i++)
             {
                 try

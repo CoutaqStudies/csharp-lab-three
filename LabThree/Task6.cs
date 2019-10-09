@@ -9,7 +9,6 @@ namespace LabThree
         internal static void Do()
         {
             int[] array = {2, 4, 2, -10, -100, 50, -133};
-            Console.WriteLine(minRecurive(array, array.Length));
 
         }
         internal static int sumInterative(int[] array)
