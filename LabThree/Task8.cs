@@ -25,9 +25,9 @@ namespace LabThree
         static double FindDeterminant(int[,] Matrix)
         {
             double detA = 0;
-            for (int k = 1; k < Math.Sqrt(Matrix.Length); k++)
+            for (int k = 0; k < Math.Sqrt(Matrix.Length); k++)
             {
-                detA += Matrix[1, k] * FindAOfIJ(1, k, Matrix);
+                detA += Matrix[0, k] * FindAOfIJ(0, k, Matrix);
             }
             return detA;
         }
@@ -39,7 +39,7 @@ namespace LabThree
         private static double FindMOfIJ(int i, int j, int[,] matrix)
         {
             int[,] new_matrix = new int[(int)(Math.Sqrt(matrix.Length) - 1), (int)(Math.Sqrt(matrix.Length) - 1)];
-            new_matrix = TrimArray(i, j, matrix);  
+            new_matrix = TrimArray(i, j, matrix);
             if (new_matrix.Length == 4)
             {
                 return new_matrix[0, 0] * new_matrix[1, 1] - new_matrix[0, 1] * new_matrix[1, 0];
@@ -51,11 +51,11 @@ namespace LabThree
                 {
                     if (k % 2 != 0)
                     {
-                        determinant -= new_matrix[0, k] * FindMOfIJ(k, 0, new_matrix);
+                        determinant -= new_matrix[0, k] * FindMOfIJ(0, k, new_matrix);
                     }
                     else
                     {
-                        determinant += new_matrix[0, k] * FindMOfIJ(k, 0, new_matrix);
+                        determinant += new_matrix[0, k] * FindMOfIJ(0, k, new_matrix);
                     }
                 }
                 return determinant;
